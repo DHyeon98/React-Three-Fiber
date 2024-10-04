@@ -1,4 +1,4 @@
-import { OrbitControls } from "@react-three/drei";
+import { Box, OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { radianConversion } from "./radianConversion";
@@ -18,9 +18,9 @@ import * as THREE from "three";
 export default function MyElement3D() {
   const refMesh = useRef();
 
-  useFrame((state, delta) => {
-    refMesh.current.rotation.z += 0.005;
-  });
+  // useFrame((state, delta) => {
+  //   refMesh.current.rotation.z += 0.005;
+  // });
   return (
     <>
       <directionalLight position={[1, 1, 1]} />
@@ -31,7 +31,7 @@ export default function MyElement3D() {
         ref={refMesh}
         // position-x={2}
         position={[0, 2, 0]}
-        rotation={[0, 0, radianConversion(45)]}
+        // rotation={[0, 0, radianConversion(45)]}
         scale={[2, 1, 1]}
       >
         <boxGeometry />
@@ -45,6 +45,11 @@ export default function MyElement3D() {
           <axesHelper scale={5} />
         </mesh>
       </mesh>
+
+      {/* drei로 사용 가능 */}
+      {/* <Box>
+        <meshStandardMaterial color="blue" />
+      </Box> */}
     </>
   );
 }
