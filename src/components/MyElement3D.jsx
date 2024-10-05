@@ -1,7 +1,7 @@
 import { Box, OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { radianConversion } from "./radianConversion";
+import { radianConversion } from "../radianConversion";
 import * as THREE from "three";
 
 /**
@@ -47,9 +47,9 @@ export default function MyElement3D() {
       </mesh>
 
       {/* drei로 사용 가능 */}
-      {/* <Box>
+      <Box>
         <meshStandardMaterial color="blue" />
-      </Box> */}
+      </Box>
     </>
   );
 }
