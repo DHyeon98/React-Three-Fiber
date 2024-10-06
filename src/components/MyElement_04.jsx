@@ -1,7 +1,11 @@
 import {
+  MeshDiscardMaterial,
+  MeshDistortMaterial,
   MeshReflectorMaterial,
   MeshTransmissionMaterial,
+  MeshWobbleMaterial,
   OrbitControls,
+  shaderMaterial,
 } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -35,9 +39,9 @@ export default function MyElement04() {
         <meshStandardMaterial color="cyan" />
       </mesh> */}
 
-      <mesh>
+      {/* <mesh>
         <sphereGeometry args={[1.4, 128, 128]} />
-        {/* 주로 투명한 물체를 모델링하는 데 사용 */}
+        주로 투명한 물체를 모델링하는 데 사용
         <MeshTransmissionMaterial
           transmissionSampler={false} // 전송 샘플러 사용 여부 (false: 기본 전송 방식 사용)
           backside={false} // 반대면 렌더링 여부 (true: 물체의 뒷면도 렌더링)
@@ -64,6 +68,24 @@ export default function MyElement04() {
       <mesh scale={0.3}>
         <torusGeometry args={[0.5, 0.2, 32]} />
         <meshStandardMaterial />
+      </mesh> */}
+
+      <mesh>
+        <torusGeometry />
+        {/* 흔들리는 물체 */}
+        {/* <MeshWobbleMaterial
+          factor={2} // 흔들거리는 정도
+          speed={5} // 흔들거리는 스피드
+        /> */}
+
+        {/* 왜곡되는 물체 */}
+        {/* <MeshDistortMaterial
+          distort={0.3} // 왜곡 정도
+          speed={1} // 왜곡 스피드
+        /> */}
+
+        {/* visible과 다른 점은 매쉬의 그림자는 표현함 */}
+        {/* <MeshDiscardMaterial /> */}
       </mesh>
     </>
   );
